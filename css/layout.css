@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 body {
   font-family: "Noto Sans KR", sans-serif;
@@ -82,7 +83,114 @@ header nav .gnb a:hover {
   text-decoration: underline;
 }
 
+#m_nav {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 200px;
+  height: 160px;
+  /* ul 끝 */
+}
+#m_nav > ul {
+  position: relative;
+}
+#m_nav > ul > li {
+  width: 30px;
+  border-radius: 40px;
+  position: absolute;
+  right: 0px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+#m_nav > ul > li:hover {
+  width: 200px;
+}
+#m_nav > ul > li:nth-child(2) {
+  top: 40px;
+}
+#m_nav > ul > li:nth-child(3) {
+  top: 80px;
+}
+#m_nav > ul > li:nth-child(4) {
+  top: 120px;
+}
+#m_nav > ul > li:last-child {
+  top: 160px;
+}
+#m_nav > ul span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(0, 179, 255, 0.6);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  line-height: 30px;
+  transition: 0.3s;
+}
+#m_nav > ul span:hover {
+  background: #006EFF;
+}
+#m_nav > ul a {
+  color: #fff;
+  display: inline-block;
+  width: 160px;
+  line-height: 30px;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+}
+#m_nav > ul .m_nav_on {
+  width: 200px !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* #m_nav 끝 */
 footer {
   background: #1C1A1D;
   height: 177px;
+  padding: 40px 0;
+}
+footer > .f_inner {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+footer h2 {
+  padding-top: 10px;
+  width: 150px;
+}
+footer .f_lnb > ul {
+  display: flex;
+  padding-top: 15px;
+}
+footer .f_lnb > ul a {
+  color: #ccc;
+  padding: 0 20px;
+  border-right: 1px solid #ccc;
+}
+footer .f_lnb > ul a:hover {
+  text-decoration: underline;
+}
+footer .f_lnb > ul li:last-child a {
+  border-right: none;
+}
+footer .f_lnb > ul li:nth-child(2) a {
+  color: #fff;
+}
+footer address {
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ccc;
+  padding-left: 170px;
+}
+footer address dt,
+footer address dd {
+  display: inline-block;
+  margin-right: 10px;
 }/*# sourceMappingURL=layout.css.map */

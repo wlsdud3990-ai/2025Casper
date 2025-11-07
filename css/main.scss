@@ -1,0 +1,47 @@
+@import 'common';
+
+
+
+main {
+    overflow: hidden;
+    clear: both; // header영역에서 혹시 사용된 float속성이 있다면 float속성 해제 한다.
+
+    >#movie {
+        height: 100vh;
+        background: $line_color_g;
+
+        >video {
+            width: 100%;
+        }
+    }
+
+    >#top3 {
+        height: 1146px;
+        background: #faf4e1;
+    }
+
+    >#intro {
+        height: 923px;
+        background: #e9cc58;
+    }
+
+    >#test_drive {
+        height: 923px;
+        background: #9c862c;
+    }
+
+    >#event {
+        height: 923px;
+        background: #635314;
+    }
+
+    >#buy {
+        height: 923px;
+        background: #c59e04;
+    }
+
+    >#customer {
+        height: 923px;
+        background: #a1976e;
+    }
+}
