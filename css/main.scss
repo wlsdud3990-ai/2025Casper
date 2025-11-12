@@ -1,297 +1,612 @@
-//@import 'common';
+//@import 'layout, common';
 @use 'common' as *;
 
-//마진값 설정
-$m_value:80px;
 
-main{
-  overflow:hidden;
-  clear:both;//header영역에서 혹시 사용된 float속성이 있다면 float속성해제 한다.
-  > #movie{
-    height:100vh;
-    overflow:hidden;
-    > video{width:100%;}
-    > .m_info{
-      position:absolute;
-      width:100%;
-      top:46%;
-      text-align:center;
-      z-index:100;
-      color:$txt_color2;
-      > h2{
-        font-size:60px;
+$m_value: 80px;
+// body, html{
+//   scroll-behavior:smooth;
+// } 스크롤 적용
+
+
+main {
+  overflow: hidden;
+  clear: both; //header영역에서 사용된 float속성이 있다면 해제한다.
+
+  >#movie {
+    height: 100vh;
+    background-color: $line_color_g;
+    overflow: hidden;
+
+    >video {
+      width: 100%;
+    }
+
+    .m_info {
+      position: absolute;
+      width: 100%;
+      top: 40%;
+      text-align: center;
+
+      color: $txt_color2;
+      line-height: 50px;
+
+      >h2 {
         text-transform: uppercase;
-        font-weight:bold;
+        font-size: 60px;
+        padding-bottom: 15px;
       }
-      > p{
-        line-height:80px;
-        font-size:$t_size_m;
+
+      p {
+        font-size: $t_size_m;
       }
-      > a{
-        color:$txt_color2;
-        font-size:14px;
-        text-decoration:underline;
-        margin:0px 20px;
-        padding:5px 10px;
+
+      a {
+        color: $txt_color2;
+        margin: 0px 20px;
+        padding: 5px 10px;
+        text-decoration: underline;
+        font-size: 14px;
+        // &:hover{
+        //   background:$nav_color2;
+        // }
       }
-      /* 첫번째 메뉴 서식 배경색 적용 */
-      a:first-of-type{
-        background:$nav_color02;
+
+      /*첫번째 메뉴 서식 배경색 적용*/
+      a:first-of-type {
+        background-color: $nav_color2;
       }
     }
 
-    /* 다음페이지 이동하기 버튼 서식 */
-    @mixin arrow_btn{
-      border-left:1px solid $txt_color2;
-      border-bottom:1px solid $txt_color2;
+    /*다음페이지 이동하기 버튼 서식 */
+    @mixin arrow_btn {
+      width: 40px;
+      height: 40px;
+      border-left: 2px solid $txt_color2;
+      border-bottom: 2px solid $txt_color2;
       transform: rotate(-45deg);
-      width:40px;height:40px;
     }
-    > #next_btn{
-      // 글자 숨기기
-      display:inline-block;
-      text-indent:-9999px;
-      position:absolute;
-      bottom:40px;left:50%;
+
+    #next_btn {
+      display: block;
+      text-indent: -9999px;
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
       transform: translate(-50%, -50%);
       @include arrow_btn;
     }
   }
-  > #top3{padding-bottom:50px;}
+
+  >#top3 {}
+
+  >#intro {}
+
+  >#test_drive {}
+
+  >#event {
+    background: $line_color_g;
+    padding-bottom: 100px;
+  }
+
+  >#buy {
+    height: 923px;
+    //ackground: #ff97e0;
+  }
+
+  >#customer {
+    height: 923px;
+    //background: #b697ff;
+  }
 }
 
-// 콘텐츠 제목서식
-@mixin m_title(){
-  font-size:$t_size_t3;
-  text-align:center;
-  font-weight:bold;
-  padding:$m_value 0px 10px 0px;
+//콘텐츠 제목 서식
+@mixin m_title() {
+  font-size: $t_size_t3;
+  text-align: center;
+  font-weight: bold;
+  padding: $m_value 0px 10px 0px;
 }
 
-/* 버튼 서식 */
-@mixin btn(){
-  border:1px solid $txt_color1;
-  background:$txt_color2;
-  padding:8px 26px;
+//버튼 서식 
+@mixin btn() {
+  border: 1px solid $txt_color1;
+  background: $txt_color2;
+  padding: 8px 26px;
 }
-.btn{@include btn;}
 
-// top3, intro, test_drive, event, buy
-.m_title{
-  margin:$m_value 0px 0px 0px;
+.btn {
+  @include btn;
+}
+
+//5개의 콘텐츠에 같은 서식 적용
+// #top3, #intro, #test_drive, #event, #buy
+.m_title {
+  margin: $m_value 0px 0px 0px;
   @include m_title;
 }
 
-/* 2. 가장 많이 찾는 캐스퍼 top3 */
-#top3{
-  text-align:center;
-  >.p01{
-    font-size:$t_size_m;
-    line-height:50px;
+/*2. 가장 많이 찾는 캐스퍼 top3*/
+#top3 {
+  text-align: center;
+
+  >.p01 {
+    font-size: $t_size_m;
+    line-height: 50px;
   }
 
-  /* slide 서식 */
-  .top3{
-    position:relative;
-    margin-top:50px;
-    padding:20px 0px 50px 0px;
-    > .swiper-wrapper{
-      width:100%;height:100%;
-      .rank{
-        color:#327186;
-        border:1px solid #327186;
-        padding:6px 30px;
-        border-radius:20px;
-        font-size:$t_size_ss;
-      }
-      .top3_title{
-        font-size:$t_size_t1;
-        font-weight:600;
-        padding-top:30px;
-        color:$txt_color5;
+  >.top3 {
+    position: relative;
+    margin-top: 50px;
+    padding: 20px 0px 50px 0px;
+
+    >.swiper-wrapper {
+      width: 100%;
+      height: 100%;
+
+      .rank {
+        color: #327186;
+        border: 1px solid #327186;
+        padding: 6px 30px;
+        border-radius: 20px;
+        font-size: $t_size_ss;
       }
 
-      /* 자동차 사진 */
-      img{
-        width:400px;
-        padding:$m_value 0px;
-        /* 시간속성을 넣어줌 (역동적인 느낌)*/
-        transition:0.8s;
+      .top3_title {
+        font-size: $t_size_t1 ;
+        color: $txt_color5;
+        padding: 30px;
+      }
+
+      /*자동차 사진*/
+      img {
+        width: 400px;
+        padding: $m_value 0px;
+        transition: 0.8s;
+        transform: scale(0.5);
         transition-timing-function: cubic-bezier(0.1, 1.0);
-        transform:scale(0.7);
       }
-      /* 이미지 멈출때 크기 확장하기 */
-      .swiper-slide-active img{
-        transform:scale(1.2);
+
+      .swiper-slide-active img {
+        transform: scale(1.2);
+      }
+
+      .detail {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 60px;
+
+        >li {
+          width: 190px;
+          padding: 0px 20px;
+          text-align: left;
+          line-height: 20px;
+          border-right: 1px solid $line_color_g;
+          font-size: $t_size_m;
+        }
+
+        >li:last-child {
+          border: none;
+          padding-top: 6px;
+
+          .price {
+            font-size: $t_size_t1;
+            color: $txt_color5;
+            font-style: normal;
+            font-weight: bold;
+          }
+        }
       }
     }
   }
 }
 
-/* 디테일 - 색상정보, 가격정보, 옵션 서식 */
-.detail{
-  display:flex;
-  justify-content: center;
-  padding-bottom:60px;
-  >li{
-    width:190px;
-    padding:0px 20px;
-    text-align:left;
-    line-height:20px;
-    font-size:$t_size_m;
-    border-right:1px solid $line_color_g;
+/*색상 박스*/
+.outer_color,
+.inner_color {
+  display: inline-block;
+  width: 56px;
+  height: 40px;
+  text-indent: -9999px;
+  float: left;
+  margin-right: 10px;
+}
+
+.kaki {
+  background: #494b3e;
+}
+
+.black {
+  background: #000;
+}
+
+.white {
+  background: #ffff;
+  border: 1px solid #ccc;
+}
+
+.orange {
+  background: rgba(190, 86, 0);
+}
+
+.swiper-pagination-bullet {
+  width: 100px !important;
+  height: 10px !important;
+  background: $txt_color5 !important;
+  border-radius: 0px !important;
+  margin: 0 5px !important;
+  transition: all 0.3s;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  margin: 10px;
+  color: $txt_color3 !important;
+}
+
+.swiper-button-next {
+  transform: translateX(-100px) !important;
+}
+
+.swiper-button-prev {
+  transform: translateX(100px) !important;
+}
+
+/*3. 자동차 소개 페이지 서식*/
+#intro {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  .intro_title_left,
+  .intro_title_right {
+    position: absolute;
+    z-index: 100;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
   }
-  >li:last-child{
-    border:none;
-    padding-top:6px;
+
+  .intro_title_left {
+    top: 180px;
+    // left:200px;
+    left: -300px;
   }
-  .price{
-    font-size:$t_size_t1;
-    font-weight: bold;
-    color:$txt_color5;
+
+  .intro_title_right {
+    bottom: 280px;
+    // right:150px;
+    right: -300px;
+    text-align: right;
+  }
+
+  video {
+    width: 100%;
+    position: relative;
+  }
+
+  .m_title {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    top: -120px;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
   }
 }
 
-/* 색상박스 */
-.outer_color,.inner_color{
-  width:56px;height:40px;
-  float:left;
-  text-indent:-9999px;
-  margin-right:10px;
-}
-.kaki{background:#494b3e;}
-.black{background:#000;}
-.white{background:#fff;border:1px solid #ccc;}
-.orange{background:rgb(190, 86, 0);}
+/*4. 시승신청 페이지 서식*/
+#test_drive {
+  text-align: center;
 
+  >.p_01 {
+    font-size: $t_size_ss;
+  }
 
-/* 스와이퍼 슬라이드 콘트롤 버튼 서식 */
-#top3 .swiper-pagination-bullet{
-  width:100px !important;
-  height:10px !important;
-  background:$txt_color4 !important;
-  border-radius:0px !important;
-  margin:0 5px !important;
-}
+  >article {
+    width: 430px;
+    height: 280px;
+    border: 1px solid $line_color_g;
+    padding: 15px;
+    margin-top: 50px;
+    display: inline-block;
+    vertical-align: middle;
 
-#top3 .swiper-button-next, #top3 .swiper-button-prev{
-  color:$txt_color3 !important;
-}
-
-// 3. 자동차 소개페이지
-#intro{
-  height:100vh;
-  overflow:hidden;
-  position:relative;
-  text-align:center;
-}
-#intro > h2{
-  position:absolute;top:-100px;
-  width:100%;z-index:100;
-}
-.intro_title_left, .intro_title_right{
-  position:absolute;
-  z-index: 100;
-  font-size:30px;
-  font-weight:500;
-  line-height:40px;
-}
-.intro_title_left{
-  top:150px;
-  // left:130px;
-  left:-330px;
-}
-.intro_title_right{
-  bottom:200px;
-  // right:150px;
-  right:-300px;
-  text-align:right;
-}
-#intro video{width:100%;}
-#intro .btn{
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:1000;
-}
-
-//4. 시승신청(체험)
-#test_drive{
-  text-align:center;
-  > .p01{font-size:$t_size_ss;}
-  > article{
-    width:430px;height:280px;
-    border:1px solid $line_color_g;
-    padding:15px;
-    margin-top:50px;
-    display:inline-block;
-    vertical-align:middle;
-    >h3{
-      font-size:24px;
-      padding-top:20px;
-      font-weight:bold;
-      line-height:34px;
+    >h3 {
+      font-size: $t_size_t1;
+      padding-top: 20px;
+      font-weight: bold;
+      line-height: 30px;
     }
-    >p{
-      padding:20px 0px;
+
+    >p {
+      padding: 20px 0px;
       line-height: 22px;
-      margin-bottom:30px;
+      margin-bottom: 30px;
     }
   }
-
 }
 
-@mixin btn1{
-  padding:10px 60px;
-  color:$txt_color2;
-  background:$txt_color3;
-  line-height:30px;
+@mixin btn1 {
+  padding: 10px 60px;
+  color: $txt_color2;
+  background: $txt_color5;
+  line-height: 30px;
 }
 
-.test_d_btn1{@include btn1;}
-.test_d_btn2{
-  display:block;
-  position:relative;
-  top:20px;
-  color:$nav_color01;
-  font-weight:450;
+.test_d_btn1 {
+  @include btn1;
 }
-.test_d_p{
+
+.test_d_btn2 {
+  position: relative;
+  display: block;
+  top: 30px;
+  color: $nav_color1;
+  font-weight: 450;
+}
+
+.test_d_p {
   transform: translateY(50px);
 }
-.test_drive_r .test_d_p{
-  transform: translateY(64px);
+
+.test_drive_r .test_d_p {
+  transform: translateY(65px);
 }
 
-// 5. 이벤트 콘텐츠 서식
-#event{
-  position:relative;
-  margin-top:140px;
-  padding-bottom:40px;
-  text-align:center;
-  background:#f1f1f1;
-  > .p01{
-    font-size:$t_size_ss;
-    padding-bottom:50px;
+/*5. 이벤트 프로모션*/
+#event {
+  text-align: center;
+
+  >.p_01 {
+    font-size: $t_size_ss;
   }
-  >.event{
-    position:relative;
-    overflow:hidden;
-    width:1200px;height:350px;
-    margin:0 auto;
-    .swiper-pagination{
-      color:$txt_color3;
-    }
-    .swiper-pagination-bullet{
-      width:15px;height:15px;
-      border-radius:7.5px;
-      transition:0.5s;
-    }
-    .swiper-pagination-bullet-active{
-      background:#043e96;
-      width:100px;
-      border-radius:10px;
+
+  .event_s {
+    margin-top: 50px;
+    width: 70%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
     }
   }
+
+  .swiper-pagination {
+    position: static;
+    /* Swiper 기본 absolute 위치 해제 */
+    margin-top: 20px;
+    /* 이미지 아래 여백 */
+  }
+
+  .swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    background: $txt_color5 !important;
+    border-radius: 50px !important;
+    margin: 0 5px !important;
+    transition: all 0.3s;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 100px !important;
+  }
+}
+
+/*6. 구매하기  */
+#buy {
+  text-align: center;
+
+  >.p01 {
+    font-size: $t_size_m;
+    line-height: 50px;
+  }
+
+  h3 {
+    font-size: $t_size_t2;
+    padding: 40px 0 20px 0;
+    font-weight: bold;
+  }
+
+  .t_color {
+    color: $txt_color4;
+  }
+
+  .buy_info_list {
+    display: grid;
+    width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 33.333333%);
+
+
+    >li {
+      padding-top: 50px;
+
+      >h4 {
+        font-size: 18px;
+      }
+
+      >img {
+        width: 80px;
+        padding: 15px 0;
+      }
+
+      >.p02 {
+        line-height: 20px;
+      }
+    }
+
+    >li:last-child {
+      //마지막 li는 영상 콘텐츠라서 병합을 해야 함.
+      grid-area: 3/1/4/4; //행/열/행/열번호
+
+      iframe {
+        width: 80%;
+        height: 360px;
+      }
+
+    }
+  }
+
+}
+
+/*7. 고객지원 */
+#customer {
+  background: $bg_color_light_g;
+
+  >article {
+    padding: 24px 0;
+    width: 1200px;
+    margin: 15px auto;
+    background: $txt_color2;
+
+    >h3 {
+      font-size: 18px;
+      text-align: center;
+      padding: 60px 0 20px 0;
+      font-weight: bold;
+    }
+
+    .ars_left {
+      border-right: 1px solid $line_color_g;
+    }
+
+    .ars_left,
+    .ars_right {
+      width: 50%;
+      padding: 20px 30px;
+      box-sizing: border-box;
+      float: left;
+      display: flex;
+      justify-content: space-around;
+
+      >p {
+        display: flex;
+        flex-direction: column;
+        line-height: 30px;
+        text-align: center;
+        align-items: center;
+
+        >a {
+          color: $nav_color2;
+        }
+      }
+
+      >dl {
+        line-height: 24px;
+      }
+
+      >dl>dt {
+        font-weight: bold;
+
+      }
+    }
+
+    strong {
+      font-weight: 500px;
+      font-style: $t_size_m;
+    }
+
+  }
+
+
+}
+
+/* 고객지원 박스 전체 */
+.cs_etc {
+  width: 100%; // 전체 폭
+  max-width: 1000px; // 최대폭 지정
+  margin: 196px auto; // 위 아래 50px, 좌우 자동
+  display: block; // block으로 변경
+}
+
+
+/* 네 박스를 한 줄로 정렬 */
+.cs_etc ul {
+  display: flex;
+  justify-content: center; // 가로 중앙 정렬
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px; // 박스 사이 간격
+}
+
+
+/* 각 박스 스타일 */
+.cs_etc li {
+  flex: 0 0 calc(25% - 15px);
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  height: 280px; // 고객지원 박스 높이에 맞추기
+}
+
+/* 제목 */
+.cs_etc h4 {
+  font-size: $t_size_t1;
+  padding-top: 20px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+/* 설명글 */
+.cs_etc p {
+  padding: 20px 0px;
+  line-height: 22px;
+  margin-bottom: 30px;
+}
+
+/* 버튼 */
+.btn01 {
+  padding: 10px 60px;
+  color: #fff;
+  background: #052B58;
+  line-height: 30px;
+}
+
+/* 앱 이미지 */
+.app_links img {
+  margin-bottom: 10px;
+}
+
+
+
+
+// 아이콘 배경서식 
+.car_icon,
+.member_icon {
+  background: url('../images/bg-support-ars.png');
+  display: inline-block;
+  height: 46px;
+  text-indent: -9999px;
+  margin-top: 30px;
+}
+
+//아이콘 크기 각각 설정, 크기 지정함.
+.car_icon {
+  width: 75px;
+}
+
+.member_icon {
+  width: 60px;
+  background-position: -90px 0px;
+  transform: translateY(-30px);
+}
+
+
+
+//플로트 속성 해제
+.clearfix {
+  clear: both;
+  content: '';
+  display: block;
 }

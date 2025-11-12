@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 12px;
@@ -10,6 +10,10 @@ body {
 a {
   color: #333;
   text-decoration: none;
+}
+
+ul, ol, li {
+  list-style: none;
 }
 
 address {
@@ -24,42 +28,15 @@ address {
   color: #333 !important;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+/*
+body, html{
+  scroll-behavior: smooth;
 }
-.modal > .m_inner {
-  position: relative;
-  width: 450px;
-  height: 650px;
-  background: #fff;
-}
-.modal > .m_inner > .btn_area {
-  border-top: 2px solid #333;
-  display: inline-block;
-  line-height: 30px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-.modal > .m_inner > .btn_area > input {
-  background: #fff;
-  border: none;
-  font-size: 16px;
-}
-
+*/
 header {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 70px;
   z-index: 1000;
@@ -82,7 +59,7 @@ header > .nav_icon span.fas {
   cursor: pointer;
 }
 header > .icon1 {
-  right: 5%;
+  right: 3.3%;
 }
 header > .icon2 {
   right: 1%;
@@ -91,6 +68,11 @@ header > .icon2 {
 header nav {
   width: 600px;
   margin: -24px auto;
+}
+
+header nav .gnb {
+  display: flex;
+  justify-content: space-around;
 }
 
 header nav .gnb a {
@@ -102,19 +84,14 @@ header nav .gnb a:hover {
   text-decoration: underline;
 }
 
-.gnb {
-  display: flex;
-  justify-content: space-around;
-}
-
 #m_nav {
-  width: 200px;
-  height: 160px;
   position: fixed;
   right: 30px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
+  width: 200px;
+  height: 160px;
 }
 #m_nav > ul {
   position: relative;
@@ -125,7 +102,8 @@ header nav .gnb a:hover {
   border-radius: 40px;
   position: absolute;
   right: 0px;
-  transition: 0.8s;
+  transition: 0.5s;
+  line-height: 30px;
   overflow: hidden;
 }
 #m_nav > ul > li:nth-child(2) {
@@ -149,7 +127,6 @@ header nav .gnb a:hover {
   color: #fff;
   text-align: center;
   font-weight: bold;
-  line-height: 30px;
   transition: 0.3s;
 }
 #m_nav > ul span:hover {
@@ -157,29 +134,27 @@ header nav .gnb a:hover {
 }
 #m_nav > ul a {
   color: #fff;
-  line-height: 30px;
   display: inline-block;
   width: 160px;
   text-align: center;
   position: absolute;
   top: 0px;
 }
-
-.m_nav_on {
-  background: rgba(0, 0, 0, 0.8) !important;
+#m_nav .m_nav_on {
   width: 200px !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 footer {
-  background: #1c1a1d;
+  background: #1C1A1D;
   padding: 40px 0px;
 }
 footer > .f_inner {
   width: 1200px;
   margin: 0 auto;
   display: flex;
-  align-content: flex-end;
   flex-wrap: wrap;
+  align-content: flex-end;
 }
 footer h2 {
   padding-top: 10px;
@@ -187,7 +162,7 @@ footer h2 {
 }
 footer .f_lnb > ul {
   display: flex;
-  padding-top: 15px;
+  padding: 15px 0px;
 }
 footer .f_lnb > ul a {
   color: #ccc;
@@ -204,15 +179,12 @@ footer .f_lnb > ul li:nth-child(2) a {
   color: #fff;
 }
 footer address {
-  padding-left: 170px;
-  color: #ccc;
   line-height: 26px;
   text-transform: uppercase;
+  color: #ccc;
+  padding-left: 170px;
 }
-footer address dt,
-footer dd {
+footer address dt, footer address dd {
   display: inline-block;
-}
-footer address dl dd {
-  padding-right: 20px;
+  margin-right: 10px;
 }/*# sourceMappingURL=layout.css.map */

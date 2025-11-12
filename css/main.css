@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 12px;
@@ -11,10 +11,6 @@ body {
 a {
   color: #333;
   text-decoration: none;
-}
-
-ul, ol, li {
-  list-style: none;
 }
 
 address {
@@ -29,45 +25,36 @@ address {
   color: #333 !important;
 }
 
-/* 모달서식 */
 .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
-
-.inner {
+.modal > .m_inner {
+  position: relative;
   width: 450px;
-  height: 640px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.inner img {
-  display: block;
-}
-
-.inner p {
+  height: 650px;
   background: #fff;
-  line-height: 40px;
-  font-size: 12px;
-  padding: 0px 5px;
 }
-
-.inner #c_btn {
-  border: 1px solid #333;
-  padding: 4px 8px;
+.modal > .m_inner > .btn_area {
+  border-top: 2px solid #333;
+  display: inline-block;
+  line-height: 30px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.modal > .m_inner > .btn_area > input {
   background: #fff;
-  position: absolute;
-  right: 10px;
-  bottom: 5px;
-  font-size: 12px;
+  border: none;
+  font-size: 16px;
 }
 
 main {
@@ -76,58 +63,64 @@ main {
 }
 main > #movie {
   height: 100vh;
+  background-color: #ccc;
   overflow: hidden;
-  /* 다음페이지 이동하기 버튼 서식 */
+  /*다음페이지 이동하기 버튼 서식 */
 }
 main > #movie > video {
   width: 100%;
 }
-main > #movie > .m_info {
+main > #movie .m_info {
   position: absolute;
   width: 100%;
-  top: 46%;
+  top: 40%;
   text-align: center;
-  z-index: 100;
   color: #fff;
-  /* 첫번째 메뉴 서식 배경색 적용 */
+  line-height: 50px;
+  /*첫번째 메뉴 서식 배경색 적용*/
 }
-main > #movie > .m_info > h2 {
-  font-size: 60px;
+main > #movie .m_info > h2 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-size: 60px;
+  padding-bottom: 15px;
 }
-main > #movie > .m_info > p {
-  line-height: 80px;
+main > #movie .m_info p {
   font-size: 16px;
 }
-main > #movie > .m_info > a {
+main > #movie .m_info a {
   color: #fff;
-  font-size: 14px;
-  text-decoration: underline;
   margin: 0px 20px;
   padding: 5px 10px;
+  text-decoration: underline;
+  font-size: 14px;
 }
-main > #movie > .m_info a:first-of-type {
-  background: #006EFF;
+main > #movie .m_info a:first-of-type {
+  background-color: #006EFF;
 }
-main > #movie > #next_btn {
-  display: inline-block;
+main > #movie #next_btn {
+  display: block;
   text-indent: -9999px;
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  transform: rotate(-45deg);
   width: 40px;
   height: 40px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
 }
-main > #top3 {
-  padding-bottom: 50px;
+main > #event {
+  background: #ccc;
+  padding-bottom: 100px;
+}
+main > #buy {
+  height: 923px;
+}
+main > #customer {
+  height: 923px;
 }
 
-/* 버튼 서식 */
 .btn {
   border: 1px solid #333;
   background: #fff;
@@ -142,81 +135,78 @@ main > #top3 {
   padding: 80px 0px 10px 0px;
 }
 
-/* 2. 가장 많이 찾는 캐스퍼 top3 */
+/*2. 가장 많이 찾는 캐스퍼 top3*/
 #top3 {
   text-align: center;
-  /* slide 서식 */
 }
 #top3 > .p01 {
   font-size: 16px;
   line-height: 50px;
 }
-#top3 .top3 {
+#top3 > .top3 {
   position: relative;
   margin-top: 50px;
   padding: 20px 0px 50px 0px;
 }
-#top3 .top3 > .swiper-wrapper {
+#top3 > .top3 > .swiper-wrapper {
   width: 100%;
   height: 100%;
-  /* 자동차 사진 */
-  /* 이미지 멈출때 크기 확장하기 */
+  /*자동차 사진*/
 }
-#top3 .top3 > .swiper-wrapper .rank {
+#top3 > .top3 > .swiper-wrapper .rank {
   color: #327186;
   border: 1px solid #327186;
   padding: 6px 30px;
   border-radius: 20px;
   font-size: 14px;
 }
-#top3 .top3 > .swiper-wrapper .top3_title {
+#top3 > .top3 > .swiper-wrapper .top3_title {
   font-size: 22px;
-  font-weight: 600;
-  padding-top: 30px;
   color: #052B58;
+  padding: 30px;
 }
-#top3 .top3 > .swiper-wrapper img {
+#top3 > .top3 > .swiper-wrapper img {
   width: 400px;
   padding: 80px 0px;
-  /* 시간속성을 넣어줌 (역동적인 느낌)*/
   transition: 0.8s;
+  transform: scale(0.5);
   transition-timing-function: cubic-bezier(0.1, 1);
-  transform: scale(0.7);
 }
-#top3 .top3 > .swiper-wrapper .swiper-slide-active img {
+#top3 > .top3 > .swiper-wrapper .swiper-slide-active img {
   transform: scale(1.2);
 }
-
-/* 디테일 - 색상정보, 가격정보, 옵션 서식 */
-.detail {
+#top3 > .top3 > .swiper-wrapper .detail {
   display: flex;
   justify-content: center;
   padding-bottom: 60px;
 }
-.detail > li {
+#top3 > .top3 > .swiper-wrapper .detail > li {
   width: 190px;
   padding: 0px 20px;
   text-align: left;
   line-height: 20px;
-  font-size: 16px;
   border-right: 1px solid #ccc;
+  font-size: 16px;
 }
-.detail > li:last-child {
+#top3 > .top3 > .swiper-wrapper .detail > li:last-child {
   border: none;
   padding-top: 6px;
 }
-.detail .price {
+#top3 > .top3 > .swiper-wrapper .detail > li:last-child .price {
   font-size: 22px;
-  font-weight: bold;
   color: #052B58;
+  font-style: normal;
+  font-weight: bold;
 }
 
-/* 색상박스 */
-.outer_color, .inner_color {
+/*색상 박스*/
+.outer_color,
+.inner_color {
+  display: inline-block;
   width: 56px;
   height: 40px;
-  float: left;
   text-indent: -9999px;
+  float: left;
   margin-right: 10px;
 }
 
@@ -229,7 +219,7 @@ main > #top3 {
 }
 
 .white {
-  background: #fff;
+  background: white;
   border: 1px solid #ccc;
 }
 
@@ -237,68 +227,75 @@ main > #top3 {
   background: rgb(190, 86, 0);
 }
 
-/* 스와이퍼 슬라이드 콘트롤 버튼 서식 */
-#top3 .swiper-pagination-bullet {
+.swiper-pagination-bullet {
   width: 100px !important;
   height: 10px !important;
-  background: #3B8BAE !important;
+  background: #052B58 !important;
   border-radius: 0px !important;
   margin: 0 5px !important;
+  transition: all 0.3s;
 }
 
-#top3 .swiper-button-next, #top3 .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
+  margin: 10px;
   color: #225499 !important;
 }
 
+.swiper-button-next {
+  transform: translateX(-100px) !important;
+}
+
+.swiper-button-prev {
+  transform: translateX(100px) !important;
+}
+
+/*3. 자동차 소개 페이지 서식*/
 #intro {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  text-align: center;
 }
-
-#intro > h2 {
-  position: absolute;
-  top: -100px;
-  width: 100%;
-  z-index: 100;
-}
-
-.intro_title_left, .intro_title_right {
+#intro .intro_title_left,
+#intro .intro_title_right {
   position: absolute;
   z-index: 100;
   font-size: 30px;
   font-weight: 500;
   line-height: 40px;
 }
-
-.intro_title_left {
-  top: 150px;
-  left: -330px;
+#intro .intro_title_left {
+  top: 180px;
+  left: -300px;
 }
-
-.intro_title_right {
-  bottom: 200px;
+#intro .intro_title_right {
+  bottom: 280px;
   right: -300px;
   text-align: right;
 }
-
 #intro video {
   width: 100%;
+  position: relative;
 }
-
+#intro .m_title {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  top: -120px;
+}
 #intro .btn {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
 }
 
+/*4. 시승신청 페이지 서식*/
 #test_drive {
   text-align: center;
 }
-#test_drive > .p01 {
+#test_drive > .p_01 {
   font-size: 14px;
 }
 #test_drive > article {
@@ -311,10 +308,10 @@ main > #top3 {
   vertical-align: middle;
 }
 #test_drive > article > h3 {
-  font-size: 24px;
+  font-size: 22px;
   padding-top: 20px;
   font-weight: bold;
-  line-height: 34px;
+  line-height: 30px;
 }
 #test_drive > article > p {
   padding: 20px 0px;
@@ -325,14 +322,14 @@ main > #top3 {
 .test_d_btn1 {
   padding: 10px 60px;
   color: #fff;
-  background: #225499;
+  background: #052B58;
   line-height: 30px;
 }
 
 .test_d_btn2 {
-  display: block;
   position: relative;
-  top: 20px;
+  display: block;
+  top: 30px;
   color: #00B3FF;
   font-weight: 450;
 }
@@ -342,38 +339,219 @@ main > #top3 {
 }
 
 .test_drive_r .test_d_p {
-  transform: translateY(64px);
+  transform: translateY(65px);
 }
 
+/*5. 이벤트 프로모션*/
 #event {
-  position: relative;
-  margin-top: 140px;
-  padding-bottom: 40px;
   text-align: center;
-  background: #f1f1f1;
 }
-#event > .p01 {
+#event > .p_01 {
   font-size: 14px;
-  padding-bottom: 50px;
 }
-#event > .event {
-  position: relative;
+#event .event_s {
+  margin-top: 50px;
+  width: 70%;
   overflow: hidden;
+}
+#event .event_s img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#event .swiper-pagination {
+  position: static;
+  /* Swiper 기본 absolute 위치 해제 */
+  margin-top: 20px;
+  /* 이미지 아래 여백 */
+}
+#event .swiper-pagination-bullet {
+  width: 15px !important;
+  height: 15px !important;
+  background: #052B58 !important;
+  border-radius: 50px !important;
+  margin: 0 5px !important;
+  transition: all 0.3s;
+}
+#event .swiper-pagination-bullet-active {
+  width: 100px !important;
+}
+
+/*6. 구매하기  */
+#buy {
+  text-align: center;
+}
+#buy > .p01 {
+  font-size: 16px;
+  line-height: 50px;
+}
+#buy h3 {
+  font-size: 20px;
+  padding: 40px 0 20px 0;
+  font-weight: bold;
+}
+#buy .t_color {
+  color: #3B8BAE;
+}
+#buy .buy_info_list {
+  display: grid;
   width: 1200px;
-  height: 350px;
   margin: 0 auto;
+  grid-template-columns: repeat(3, 33.333333%);
 }
-#event > .event .swiper-pagination {
-  color: #225499;
+#buy .buy_info_list > li {
+  padding-top: 50px;
 }
-#event > .event .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
-  border-radius: 7.5px;
-  transition: 0.5s;
+#buy .buy_info_list > li > h4 {
+  font-size: 18px;
 }
-#event > .event .swiper-pagination-bullet-active {
-  background: #043e96;
-  width: 100px;
-  border-radius: 10px;
+#buy .buy_info_list > li > img {
+  width: 80px;
+  padding: 15px 0;
+}
+#buy .buy_info_list > li > .p02 {
+  line-height: 20px;
+}
+#buy .buy_info_list > li:last-child {
+  grid-area: 3/1/4/4;
+}
+#buy .buy_info_list > li:last-child iframe {
+  width: 80%;
+  height: 360px;
+}
+
+/*7. 고객지원 */
+#customer {
+  background: #ededed;
+}
+#customer > article {
+  padding: 24px 0;
+  width: 1200px;
+  margin: 15px auto;
+  background: #fff;
+}
+#customer > article > h3 {
+  font-size: 18px;
+  text-align: center;
+  padding: 60px 0 20px 0;
+  font-weight: bold;
+}
+#customer > article .ars_left {
+  border-right: 1px solid #ccc;
+}
+#customer > article .ars_left,
+#customer > article .ars_right {
+  width: 50%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  float: left;
+  display: flex;
+  justify-content: space-around;
+}
+#customer > article .ars_left > p,
+#customer > article .ars_right > p {
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  text-align: center;
+  align-items: center;
+}
+#customer > article .ars_left > p > a,
+#customer > article .ars_right > p > a {
+  color: #006EFF;
+}
+#customer > article .ars_left > dl,
+#customer > article .ars_right > dl {
+  line-height: 24px;
+}
+#customer > article .ars_left > dl > dt,
+#customer > article .ars_right > dl > dt {
+  font-weight: bold;
+}
+#customer > article strong {
+  font-weight: 500px;
+  font-style: 16px;
+}
+
+/* 고객지원 박스 전체 */
+.cs_etc {
+  width: 100%;
+  max-width: 1000px;
+  margin: 196px auto;
+  display: block;
+}
+
+/* 네 박스를 한 줄로 정렬 */
+.cs_etc ul {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+/* 각 박스 스타일 */
+.cs_etc li {
+  flex: 0 0 calc(25% - 15px);
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  height: 280px;
+}
+
+/* 제목 */
+.cs_etc h4 {
+  font-size: 22px;
+  padding-top: 20px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+/* 설명글 */
+.cs_etc p {
+  padding: 20px 0px;
+  line-height: 22px;
+  margin-bottom: 30px;
+}
+
+/* 버튼 */
+.btn01 {
+  padding: 10px 60px;
+  color: #fff;
+  background: #052B58;
+  line-height: 30px;
+}
+
+/* 앱 이미지 */
+.app_links img {
+  margin-bottom: 10px;
+}
+
+.car_icon,
+.member_icon {
+  background: url("../images/bg-support-ars.png");
+  display: inline-block;
+  height: 46px;
+  text-indent: -9999px;
+  margin-top: 30px;
+}
+
+.car_icon {
+  width: 75px;
+}
+
+.member_icon {
+  width: 60px;
+  background-position: -90px 0px;
+  transform: translateY(-30px);
+}
+
+.clearfix {
+  clear: both;
+  content: "";
+  display: block;
 }/*# sourceMappingURL=main.css.map */
