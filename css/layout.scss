@@ -1,227 +1,158 @@
-@import 'common';
+//@import 'common';
+@use 'common';
 
-// body,
-// html {
-//     scroll‑behavior: smooth;
-// }
+/*
+body, html{
+  scroll-behavior: smooth;
+}
+*/
 
 // layout.scss 레이아웃
-$ani_time: 0.3s;
-$box_center: 0 auto;
+$ani_time:0.3s;
+$box_center:0 auto;
+
 
 // header
-header {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 70px;
-    z-index: 1000;
-    transition: $ani_time;
-
-    >h1 {
-        // position: relative;
-        padding: 24px 0 0 2%;
-    }
-
-    >div[class^="nav_icon"] {
-        width: 40px;
-        position: absolute;
-        top: 24px;
-        text-align: center;
-
-
-        span:last-child {
-            display: none;
-        }
-
-        span.fas {
-            font-size: $t_size_t1;
-            color: $txt_color2;
-            cursor: pointer;
-        }
-
-    }
-
-    //각각 위치 지정
-    >.nav_icon1 {
-        right: 3.5%;
-    }
-
-    >.nav_icon2 {
-        right: 1%;
-    }
+header{
+  position:fixed;top:0px;left:0px;
+  width:100%;height:70px;
+  z-index:1000;
+  transition: $ani_time;
+  > h1{
+    padding:24px 0px 0px 2%;
+  }
+  > .nav_icon{
+    width:40px;
+    position:absolute;
+    top:24px;
+  }
+  > .nav_icon span:last-child{
+    display:none;
+  }
+  > .nav_icon span.fas{
+    font-size:$t_size_t1;
+    color:$txt_color2;
+    cursor:pointer;
+  }
+  > .icon1{right:3.3%;}
+  > .icon2{right:1%;}
 }
 
-//메인 메뉴 서식
-header nav {
-    width: 600px;
-    margin: -24px auto;
-    //transform: translateY(-24px);
+// 메인메뉴 서식
+header nav{
+  width:600px;
+  margin:-24px auto;
+  // transform: translateY(-24px);
 }
-
-header nav .gnb {
-    display: flex;
-    justify-content: space-around;
+header nav .gnb{
+  display:flex;
+  justify-content: space-around;
 }
-
-header nav .gnb a {
-    color: $txt_color2;
-    font-size: $t_size_m;
+header nav .gnb a{
+  color:$txt_color2;
+  font-size:$t_size_m;
 }
-
-header nav .gnb a:hover {
-    text-decoration: underline;
+header nav .gnb a:hover{
+  text-decoration: underline;
 }
 
 //오른쪽 고정 내비게이션
-#m_nav {
-    position: fixed;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
-    width: 200px;
-    height: 160px;
-
-    >ul {
-        position: relative;
-
-        >li {
-            width: 30px;
-            border-radius: 40px;
-            position: absolute;
-            right: 0px;
-            transition: 0.3s;
-            overflow: hidden;
-
-            &:hover {
-                width: 200px;
-            }
-        }
-
-        >li:first-child {}
-
-        >li:nth-child(2) {
-            top: 40px;
-        }
-
-        >li:nth-child(3) {
-            top: 80px;
-        }
-
-        >li:nth-child(4) {
-            top: 120px;
-        }
-
-        >li:last-child {
-            top: 160px;
-        }
-
-        span {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: rgb(0, 179, 255, .6);
-            color: $txt_color2;
-            text-align: center;
-            font-weight: bold;
-            line-height: 30px;
-            transition: 0.3s;
-
-            //span에 마우스 오버 시 $nav_color2적용
-            &:hover {
-                background: $nav_color2;
-            }
-        }
-
-        a {
-            color: $txt_color2;
-            display: inline-block;
-            width: 160px;
-            line-height: 30px;
-            text-align: center;
-            position: absolute;
-            top: 0px;
-        }
-
-
-        //내비게이션에 마우스 오버 시 li태그에 적용할 배경 서식 
-        .m_nav_on {
-            width: 200px !important;
-            background-color: rgba(0, 0, 0, 0.8) !important;
-        }
-
+#m_nav{
+  position:fixed;
+  right:30px;top:50%;
+  transform: translateY(-50%);
+  z-index:1000;
+  width:200px;height:160px;
+  > ul{
+    position:relative;
+    > li{
+      width:30px;height:30px;
+      border-radius:40px;
+      position:absolute;
+      right:0px;
+      transition: 0.5s;
+      line-height:30px;
+      overflow:hidden;
     }
+    > li:first-child{}
+    > li:nth-child(2){top:40px;}
+    > li:nth-child(3){top:80px;}
+    > li:nth-child(4){top:120px;}
+    > li:last-child{top:160px;}
+    span{
+      display:inline-block;
+      width:30px;height:30px;
+      border-radius:50%;
+      background-color:rgb(0, 179, 255,.6);
+      color:$txt_color2;
+      text-align:center;
+      font-weight:bold;
+      transition:0.3s;
+      //span에 마우스 오버시 $nav_color02적용
+      &:hover{
+        background:$nav_color02;
+      }
+    }
+    a{
+      color:$txt_color2;
+      display:inline-block;
+      width:160px;
+      text-align:center;
+      position:absolute;top:0px;
+    }
+    
+  }
+  //내비게이션에 마우스 오버시 li태그에 적용할 배경서식
+  .m_nav_on{
+    width:200px !important;
+    background-color:rgba(0,0,0,0.8) !important;
+  }
 
-    /* ul 끝 */
 }
 
-/* #m_nav 끝 */
+//footer
+footer{
+  background:$bg_color_g;
+  padding:40px 0px;
+  > .f_inner{
+    width:1200px;
+    margin:$box_center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+  }
+  h2{
+    padding-top:10px;
+    width:150px;
+  }
+  .f_lnb{}
+  .f_lnb > ul{
+    display:flex;
+    padding:15px 0px;
+  }
+  .f_lnb > ul a{
+    color:$line_color_g;
+    padding:0px 20px;
+    border-right:1px solid $line_color_g;
+  }
+  .f_lnb > ul a{
+    &:hover{text-decoration: underline;}
+  }
+  .f_lnb > ul li:last-child a{
+    border-right:none;
+  }
+  .f_lnb > ul li:nth-child(2) a{
+    color:$txt_color2;
+  }
 
-// footer
-footer {
-    background: $f_bg_color;
-    height: 177px;
-    padding: 40px 0;
-    // display: flex; // ← 추가
-    // justify-content: center; // ← 추가: 가로 중앙
-    // align-items: center; // ← 추가: 세로 중앙
-
-    >.f_inner {
-        width: 1200px;
-        margin: $box_center;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-end;
-    }
-
-    h2 {
-        padding-top: 10px;
-        width: 150px;
-    }
-
-    .f_lnb {}
-
-    .f_lnb>ul {
-        display: flex;
-        padding-top: 15px;
-    }
-
-    .f_lnb>ul a {
-        color: $line_color_g;
-        padding: 0 20px;
-        border-right: 1px solid $line_color_g;
-    }
-
-    .f_lnb>ul a {
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .f_lnb>ul li:last-child a {
-        border-right: none;
-    }
-
-    .f_lnb>ul li:nth-child(2) a {
-        color: $txt_color2;
-    }
-
-    address {
-        line-height: 26px;
-        text-transform: uppercase;
-        color: $line_color_g;
-        padding-left: 170px;
-    }
-
-    address dt,
-    address dd {
-        display: inline-block;
-        margin-right: 10px;
-    }
-
-
-
+  address{
+    line-height:26px;
+    text-transform: uppercase;
+    color:$line_color_g;
+    padding-left:170px;
+  }
+  address dt, address dd{
+    display:inline-block;
+    margin-right:10px;
+  }
 }

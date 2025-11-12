@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 12px;
@@ -13,9 +12,7 @@ a {
   text-decoration: none;
 }
 
-ul,
-ol,
-li {
+ul, ol, li {
   list-style: none;
 }
 
@@ -31,6 +28,11 @@ address {
   color: #333 !important;
 }
 
+/*
+body, html{
+  scroll-behavior: smooth;
+}
+*/
 header {
   position: fixed;
   top: 0px;
@@ -41,26 +43,25 @@ header {
   transition: 0.3s;
 }
 header > h1 {
-  padding: 24px 0 0 2%;
+  padding: 24px 0px 0px 2%;
 }
-header > div[class^=nav_icon] {
+header > .nav_icon {
   width: 40px;
   position: absolute;
   top: 24px;
-  text-align: center;
 }
-header > div[class^=nav_icon] span:last-child {
+header > .nav_icon span:last-child {
   display: none;
 }
-header > div[class^=nav_icon] span.fas {
+header > .nav_icon span.fas {
   font-size: 22px;
   color: #fff;
   cursor: pointer;
 }
-header > .nav_icon1 {
-  right: 3.5%;
+header > .icon1 {
+  right: 3.3%;
 }
-header > .nav_icon2 {
+header > .icon2 {
   right: 1%;
 }
 
@@ -91,21 +92,19 @@ header nav .gnb a:hover {
   z-index: 1000;
   width: 200px;
   height: 160px;
-  /* ul 끝 */
 }
 #m_nav > ul {
   position: relative;
 }
 #m_nav > ul > li {
   width: 30px;
+  height: 30px;
   border-radius: 40px;
   position: absolute;
   right: 0px;
-  transition: 0.3s;
+  transition: 0.5s;
+  line-height: 30px;
   overflow: hidden;
-}
-#m_nav > ul > li:hover {
-  width: 200px;
 }
 #m_nav > ul > li:nth-child(2) {
   top: 40px;
@@ -128,7 +127,6 @@ header nav .gnb a:hover {
   color: #fff;
   text-align: center;
   font-weight: bold;
-  line-height: 30px;
   transition: 0.3s;
 }
 #m_nav > ul span:hover {
@@ -138,21 +136,18 @@ header nav .gnb a:hover {
   color: #fff;
   display: inline-block;
   width: 160px;
-  line-height: 30px;
   text-align: center;
   position: absolute;
   top: 0px;
 }
-#m_nav > ul .m_nav_on {
+#m_nav .m_nav_on {
   width: 200px !important;
   background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
-/* #m_nav 끝 */
 footer {
   background: #1C1A1D;
-  height: 177px;
-  padding: 40px 0;
+  padding: 40px 0px;
 }
 footer > .f_inner {
   width: 1200px;
@@ -167,11 +162,11 @@ footer h2 {
 }
 footer .f_lnb > ul {
   display: flex;
-  padding-top: 15px;
+  padding: 15px 0px;
 }
 footer .f_lnb > ul a {
   color: #ccc;
-  padding: 0 20px;
+  padding: 0px 20px;
   border-right: 1px solid #ccc;
 }
 footer .f_lnb > ul a:hover {
@@ -189,8 +184,7 @@ footer address {
   color: #ccc;
   padding-left: 170px;
 }
-footer address dt,
-footer address dd {
+footer address dt, footer address dd {
   display: inline-block;
   margin-right: 10px;
 }/*# sourceMappingURL=layout.css.map */
