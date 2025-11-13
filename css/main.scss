@@ -17,6 +17,7 @@ main {
     background-color: $line_color_g;
     overflow: hidden;
 
+
     >video {
       width: 100%;
     }
@@ -68,7 +69,9 @@ main {
 
     #next_btn {
       display: block;
-      text-indent: -9999px;
+      // text-indent: -9999px;
+      //font-size: 0px;
+      color: rgba(0, 0, 0, 0);
       position: absolute;
       bottom: 40px;
       left: 50%;

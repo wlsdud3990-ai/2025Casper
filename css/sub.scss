@@ -1,0 +1,125 @@
+//@import 'common';
+@use 'common' as *;
+
+//sub.scss
+//서브페이지 헤더, 푸터 공통서식
+
+header {
+    position: static;
+}
+
+//메인메뉴 서식
+header nav .gnb a {
+    color: $txt_color1;
+}
+
+header .nav_icon span.fas {
+    color: $txt_color1;
+}
+
+// 로그인 서식 
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f4f4f4;
+
+    display: flex;
+    flex-direction: column;
+    /* 헤더 → main → footer 순 */
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    /* 헤더+푸터 제외한 영역 차지 */
+    display: flex;
+    justify-content: center;
+    /* 수평 중앙 */
+    align-items: center;
+    /* 수직 중앙 */
+}
+
+.login-form {
+    // background: #fff;
+    padding: 30px 40px;
+    border-radius: 2px;
+    // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox label {
+    font-size: 12px;
+    /* 기본보다 작게 */
+}
+
+
+.checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#login_btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #005ea3;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+#login_btn:hover {
+    background-color: #023255;
+
+}
+
+.links {
+    text-align: center;
+    font-size: 12px;
+}
+
+.links a {
+    color: #0078d7;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
